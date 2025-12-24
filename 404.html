@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - String62</title>
+    <link rel="icon" href="https://files.catbox.moe/387yhh.jpg" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Semua CSS dari file index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #554FD8;
+            --secondary: #FF6584;
+            --dark-bg: #0F0F1E;
+            --dark-card: #1A1A2E;
+            --dark-text: #E0E0FF;
+            --light-text: #A0A0C0;
+            --border-color: #2A2A3E;
+            --success: #36D399;
+            --tool-color-1: #6C63FF;
+            --tool-color-2: #FF6584;
+            --tool-color-3: #36D399;
+            --tool-color-4: #FFB347;
+            --tool-color-5: #9D4EDD;
+            --tool-color-6: #00A8E8;
+            --tool-color-7: #FF6B6B;
+            --tool-color-8: #4ECDC4;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(15, 15, 30, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .logo i {
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+
+        /* 404 Page Content */
+        .error-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .error-section::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .error-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 50px;
+            background-color: rgba(26, 26, 46, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .error-code {
+            font-size: 12rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 0 10px 30px rgba(108, 99, 255, 0.2);
+        }
+
+        .error-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .error-description {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .error-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .error-button.primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .error-button.primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+        }
+
+        .error-button.secondary {
+            background-color: transparent;
+            color: var(--light-text);
+            border-color: var(--border-color);
+        }
+
+        .error-button.secondary:hover {
+            background-color: rgba(108, 99, 255, 0.1);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .popular-tools {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .popular-tools h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .tools-grid-mini {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tool-card-mini {
+            background-color: var(--dark-card);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .tool-card-mini:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .tool-icon-mini {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+            color: white;
+            background: linear-gradient(135deg, var(--tool-color-1), var(--tool-color-5));
+        }
+
+        .tool-name-mini {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-card);
+            padding: 70px 0 30px;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), transparent);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            opacity: 0.1;
+            z-index: 0;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            width: 120px;
+            height: 120px;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 5s;
+            background: linear-gradient(135deg, var(--secondary), transparent);
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 10s;
+            background: linear-gradient(135deg, var(--tool-color-3), transparent);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 8rem;
+            }
+            
+            .error-title {
+                font-size: 2rem;
+            }
+            
+            .error-content {
+                padding: 30px;
+                margin: 20px;
+            }
+            
+            .error-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .error-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-title {
+                font-size: 1.8rem;
+            }
+            
+            .tools-grid-mini {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fa-brands fa-vaadin"></i>
+                    <div>String62<span></span></div>
+                </div>
+                <div class="nav-links">
+                    <a href="../"><i class="fa-solid fa-house"></i> Home</a>
+                    <a href="../#services"><i class="fa-brands fa-servicestack"></i> Services</a>
+                    <a href="../#features"><i class="fa-solid fa-server"></i> Features</a>
+                    <a href="./"><i class="fa-solid fa-fire"></i> Tools</a>
+                    <a href="../#contact"><i class="fa-solid fa-mug-saucer"></i> Contact</a>
+                </div>
+                <a href="./" class="cta-button">Use Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 404 Page Content -->
+    <section class="error-section">
+        <!-- Floating background elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        
+        <div class="container">
+            <div class="error-content">
+                <div class="error-code">404</div>
+                <h1 class="error-title">Page Not Found</h1>
+                <p class="error-description">
+                    The page you're looking for doesn't exist or has been moved. 
+                    Don't worry, you can explore our amazing tools collection or return to the homepage.
+                </p>
+                
+                <div class="error-actions">
+                    <a href="../" class="error-button primary">
+                        <i class="fas fa-home"></i> Back to Homepage
+                    </a>
+                    <a href="./" class="error-button secondary">
+                        <i class="fas fa-fire"></i> Explore Tools
+                    </a>
+                </div>
+                
+                <div class="popular-tools">
+                    <h3>Popular Tools You Might Like</h3>
+                    <div class="tools-grid-mini">
+                        <a href="/tools/tiktokdl/" class="tool-card-mini">
+                            <div class="tool-icon-mini">
+                                <i class="fab fa-tiktok"></i>
+                            </div>
+                            <div class="tool-name-mini">TikTok Downloader</div>
+                        </a>
+                        <a href="/tools/removebg" class="tool-card-mini">
+                            <div class="tool-icon-mini">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="tool-name-mini">Remove Background</div>
+                        </a>
+                        <a href="/tools/passgenerator" class="tool-card-mini">
+                            <div class="tool-icon-mini">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <div class="tool-name-mini">Password Generator</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3><i class="fa-solid fa-mug-saucer"></i> Contact</h3>
+                    <p>Professional website development services for businesses of all sizes. We create digital solutions that drive growth and success.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+62 898 - 3692 - 907 (Ardan)</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>String62@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>🇮🇩 Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="./"><i class="fas fa-fire"></i> Tools</a></li>
+                        <li><a href="../#services"><i class="fas fa-cogs"></i> Services</a></li>
+                        <li><a href="../#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="https://wa.me/62895326532802"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                        <li><a href="https://t.me/string62_admin"><i class="fab fa-telegram"></i> Telegram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 String62 - Tools. All tools are free to use for personal and commercial purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple hover effect for tool cards
+        document.querySelectorAll('.tool-card-mini').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.tool-icon-mini');
+                icon.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.tool-icon-mini');
+                icon.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Add subtle animation to error code
+        const errorCode = document.querySelector('.error-code');
+        errorCode.style.transition = 'transform 0.3s ease';
+        
+        errorCode.addEventListener('mouseenter', () => {
+            errorCode.style.transform = 'scale(1.05)';
+        });
+        
+        errorCode.addEventListener('mouseleave', () => {
+            errorCode.style.transform = 'scale(1)';
+        });
+    </script>
+</body>
+</html>
